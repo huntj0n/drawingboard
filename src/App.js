@@ -1,7 +1,8 @@
 import React from 'react';
 import routes from './routes';
 import {withRouter} from 'react-router-dom';
-import './App.css';
+import {connect} from 'react-redux';
+import './App.scss';
 
 function App() {
   return (
@@ -11,4 +12,4 @@ function App() {
   );
 }
 
-export default withRouter(App);
+export default connect(null)(withRouter(App));

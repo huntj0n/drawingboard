@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import SideNav from '../SideNav/SideNav';
 
 function Calendar() {
@@ -10,10 +11,15 @@ function Calendar() {
             </div>
             <div>
                 this is the calendar component
-                <Link to="/drawingbaord"><button>return to drawingbaord</button></Link>
+                <Link to="/drawingboard"><button>return to drawingbaord</button></Link>
             </div>
         </div>
     )
 }
+const mapStateToProps = reduxState => {
+    return {
+        username: reduxState.user.username
+    }
+}
 
-export default Calendar
+export default connect(mapStateToProps, {})(Calendar)

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 function Landing() {
     return (
@@ -35,5 +36,10 @@ function Landing() {
         </div>
     )
 }
+const mapStateToProps = reduxState => {
+    return{
+        username: reduxState.user.username
+    }
+}
 
-export default Landing
+export default connect(mapStateToProps, {})(Landing)

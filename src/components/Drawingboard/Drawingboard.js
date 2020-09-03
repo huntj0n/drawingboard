@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import SideNav from '../SideNav/SideNav';
 
 function Drawingboard() {
@@ -13,5 +14,10 @@ function Drawingboard() {
         </div>
     )
 }
+const mapStateToProps = reduxState => {
+    return {
+        username: reduxState.user.username
+    }
+}
 
-export default Drawingboard
+export default connect(mapStateToProps, {})(Drawingboard)

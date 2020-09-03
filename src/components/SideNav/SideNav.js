@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 function SideNav() {
     return (
@@ -10,5 +11,10 @@ function SideNav() {
         </div>
     )
 }
+const mapStateToProps = reduxState => {
+    return {
+        username: reduxState.user.username
+    }
+}
 
-export default SideNav
+export default connect(mapStateToProps, {})(SideNav)

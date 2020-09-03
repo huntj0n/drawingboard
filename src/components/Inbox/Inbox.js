@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import SideNav from '../SideNav/SideNav';
 
 function Inbox() {
@@ -13,5 +14,11 @@ function Inbox() {
         </div>
     )
 }
+const mapStateToProps = reduxState => {
+    return{
+        username: reduxState.user.username
+    }
+        
+}
 
-export default Inbox
+export default connect(mapStateToProps, {})(Inbox)
