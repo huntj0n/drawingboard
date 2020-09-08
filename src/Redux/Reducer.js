@@ -30,5 +30,7 @@ export default function Reducer(state = initialState, action){
                 return { ...state, user: payload }
             case LOGOUT_USER:
                 return { ...state, user: payload }
+            default:
+                return initialState;
         }
 }

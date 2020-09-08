@@ -11,12 +11,13 @@ const authCtrl = require('./authControllers');
 const boardCtrl = require('./boardControllers');
 
 const app = express()
+
 app.use(express.json());
 app.use(session({
     resave: false,
     saveUninitialized: true,
-    cookie: {maxAge: 1000 * 60 * 60 * 48},
-    secret: SESSION_SECRET
+    secret: SESSION_SECRET,
+    cookie: {maxAge: 1000 * 60 * 60 * 48}
 }))
 
 massive({
@@ -25,10 +26,14 @@ massive({
 }).then((db) => {
     app.set('db', db)
     console.log('<---- Database Connected ---->')
-}).catch (err => console.log(err))
+}).catch (err => console.log(`database error: ${err}`))
 
 //ENDPOINTS
 //auth Endpoints
+app.post('/auth/login', authCtrl.login)
+app.post('/auth/register', authCtrl.register)
+app.post('/auth/logout', authCtrl.logout)
+app.get('/auth/user', authCtrl.getUser)
 
 //board Endpoints
 
