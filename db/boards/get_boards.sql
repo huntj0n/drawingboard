@@ -1,1 +1,1 @@
-SELECT * FROM boards:
+SELECT * FROM boards;

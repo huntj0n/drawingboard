@@ -10,10 +10,10 @@ const {
 
 //CONTROLLERS
 const authCtrl = require('./authControllers');
-const userCtrl
+// const userCtrl
 const boardCtrl = require('./boardControllers');
-const groupCtrl
-const taskCtrl
+const groupCtrl = require('./groupControllers');
+const taskCtrl = require('./taskController');
  
 
 //MIDDLEWARE
@@ -49,21 +49,21 @@ app.put('/api/boards/:id', boardCtrl.editBoard)
 app.delete('/api/boards/:id', boardCtrl.deleteBoard)
 
 //group Endpoints
-app.get('/api/groups', groupCtrl)
-app.post('/api/groups', groupCtrl)
-app.put('/api/groups/:id', groupCtrl)
-app.delete('/api/groups/:id', groupCtrl)
+app.get('/api/groups', groupCtrl.getGroups)
+app.post('/api/groups', groupCtrl.addGroup)
+// app.put('/api/groups/:id', groupCtrl)
+app.delete('/api/groups/:id', groupCtrl.deleteGroup)
 
 //task Endpoints
-app.get('/api/tasks', taskCtrl)
-app.post('/api/tasks', taskCtrl)
-app.put('/api/tasks/:id', taskCtrl)
-app.delete('/api/tasks/:id', taskCtrl)
+app.get('/api/tasks', taskCtrl.getTasks)
+app.post('/api/tasks', taskCtrl.addTask)
+// app.put('/api/tasks/:id', taskCtrl)
+app.delete('/api/tasks/:id', taskCtrl.deleteTask)
 
 //profile Endpoints
-app.get('/api/user', userCtrl)
-app.put('/api/user/:id', userCtrl)
-app.delete('/api/user/:id', userCtrl)
+// app.get('/api/user', userCtrl)
+// app.put('/api/user/:id', userCtrl)
+// app.delete('/api/user/:id', userCtrl)
 
 
 
