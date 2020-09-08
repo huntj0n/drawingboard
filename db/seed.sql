@@ -62,9 +62,3 @@ CREATE TABLE tasks (
     date VARCHAR(50),
     notes TEXT 
 );
-
-
--- BEGINNING DUMMY DATA
--- 1	1	TheRock	dwayne@rock.com	BigGuy	url=https://www.mytwintiers.com/wp-content/uploads/sites/89/2020/09/5a4bdcff390942869a5b4ad52e7e5e5d-1.jpg?w=2560&h=1440&crop=1	555-1234	password
--- 2	2	RickSanchez	Rick C-137	BigBrains	url=https://maji-production-store.imgix.net/3ee75cba63f2117eb63a32bd7f2fd3cfd047ffb71af2489b17a52a841a84?ixlib=rails-2.1.4&fit=crop&dpr=2.0&h=170&w=170&auto=format&fm=pjpg	555-1137	password
--- 3	3	AbedNadir	anadir@greendale.edu	StudyGroup3	url=https://i0.wp.com/www.vinsider.ca/wp-content/uploads/2017/11/Abed_Pilot.jpg?fit=1200%2C982&ssl=1	555-8769	password
