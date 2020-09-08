@@ -13,7 +13,8 @@ const [passwordInput, setPassword] = useState("");
 
 //Change Handlers
 const handleEmail = (event) => {
-    setEmail(event.target.value)
+    const { value } = event.target;
+    setEmail(value);
 }
 
 const handlePassword = (event) => {
@@ -29,8 +30,11 @@ const login = () => {
         .then (res => {
             // props.loginUser(res.data);
             props.history.push(`/drawingboard`)
-        }).catch(err => console.log(err))
+        }).catch(err => {
+            alert(`username or password incorrect`)
+            console.log(err)})  
 }
+
 const register = () => {
     axios.post(`/auth/register`, {
         email: emailInput, 

@@ -7,9 +7,16 @@ const {
     SERVER_PORT,
     SESSION_SECRET
 } = process.env;
-const authCtrl = require('./authControllers');
-const boardCtrl = require('./boardControllers');
 
+//CONTROLLERS
+const authCtrl = require('./authControllers');
+const userCtrl
+const boardCtrl = require('./boardControllers');
+const groupCtrl
+const taskCtrl
+ 
+
+//MIDDLEWARE
 const app = express()
 
 app.use(express.json());
@@ -36,5 +43,28 @@ app.post('/auth/logout', authCtrl.logout)
 app.get('/auth/user', authCtrl.getUser)
 
 //board Endpoints
+app.get('/api/boards', boardCtrl.getBoard)
+app.post('/api/boards', boardCtrl.newBoard)
+app.put('/api/boards/:id', boardCtrl.editBoard)
+app.delete('/api/boards/:id', boardCtrl.deleteBoard)
+
+//group Endpoints
+app.get('/api/groups', groupCtrl)
+app.post('/api/groups', groupCtrl)
+app.put('/api/groups/:id', groupCtrl)
+app.delete('/api/groups/:id', groupCtrl)
+
+//task Endpoints
+app.get('/api/tasks', taskCtrl)
+app.post('/api/tasks', taskCtrl)
+app.put('/api/tasks/:id', taskCtrl)
+app.delete('/api/tasks/:id', taskCtrl)
+
+//profile Endpoints
+app.get('/api/user', userCtrl)
+app.put('/api/user/:id', userCtrl)
+app.delete('/api/user/:id', userCtrl)
+
+
 
 app.listen(SERVER_PORT, ()=> console.log(`<---- Server Connected ----> on port ${SERVER_PORT}`))

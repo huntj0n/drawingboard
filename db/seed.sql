@@ -9,6 +9,7 @@ CREATE TABLE users (
     password VARCHAR(500)
 );
 
+
 -- TEAMS (companies)
 CREATE TABLE teams (
     team_id SERIAL PRIMARY KEY,
@@ -21,6 +22,19 @@ CREATE TABLE team_members (
     user_id INTEGER REFERENCES users(user_id),
     team_id INTEGER REFERENCES teams(team_id)
 );
+
+-- JOIN TEAM MEMBERS W/ USERS
+SELECT * FROM 
+team_members tm
+JOIN users u
+ON tm.tm_id = u.user_id;
+
+-- JOIN TEAM MEMBERS W/ TEAMS
+SELECT * FROM
+team_members tm
+JOIN teams t 
+ON tm.user_id = t.team_id
+
 
 -- BOARDS 
 CREATE TABLE boards (
